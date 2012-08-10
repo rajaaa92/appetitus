@@ -8,7 +8,13 @@
   </head>
   <body>
     <div class="container">
-      <img src="/images/appetitus.png" />
+      <img src="appetitus.png" />
+
+				<% if flash[:notice] %>
+					<div id="notice">
+						<%= flash[:notice] %> 
+					</div>
+				<% end %>
 
         <%= yield %>
 

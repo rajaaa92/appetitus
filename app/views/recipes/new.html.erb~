@@ -19,10 +19,10 @@
     <%= f.label :rate %><br />
     <%= f.text_field :rate %>
   </p>
- # <p>
- #   <%= f.label :user %><br />
- #   <%= f.text_field :user %>
- # </p>
+<!-- <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>-->
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -1,5 +1,6 @@
 Appetitush::Application.configure do
   config.assets.precompile += %w( bootstrap.css )
+  config.action_view.javascript_expansions[:defaults] = %w(foo.js bar.js)
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

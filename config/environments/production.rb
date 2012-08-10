@@ -1,5 +1,6 @@
 Appetitush::Application.configure do
   config.assets.precompile += %w( bootstrap.css )
+  config.action_view.javascript_expansions[:defaults] = %w(foo.js bar.js)
   config.assets.compile = true
   # Settings specified here will take precedence over those in config/application.rb
 

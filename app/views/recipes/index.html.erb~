@@ -20,7 +20,7 @@
 
   <br />
 
-  <p><%= link_to 'New recipe', new_recipe_path %> </p>
+  <p><%= link_to 'New recipe', 'recipe#new' %> </p>
 
 
 </div>

@@ -1,5 +1,5 @@
 --- 
-
+ *= require bootstrap
 application.js: application-a104fd726a51557072fc0cd06c664335.js
 glyphicons-halflings.png: glyphicons-halflings-f6675c325532ec11a984d58e172b8e2a.png
 appetitus.png: appetitus-58a2924b0b6476143bb9aa280b9c3b78.png

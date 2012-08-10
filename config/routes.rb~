@@ -8,7 +8,7 @@ Appetitush::Application.routes.draw do
   root :to => 'recipes#index' 
   match ':controller/:action/:id'
   match ':controller/:action/:id.:format'
-end
+
 
 
 

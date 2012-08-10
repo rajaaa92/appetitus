@@ -9,7 +9,7 @@
   </p>
   <p>
     <%= f.label :pass %><br />
-    <%= f.text_field :pass %>
+    <%= f.password_field :pass %>
   </p>
   <p>
     <%= f.submit 'Create' %>

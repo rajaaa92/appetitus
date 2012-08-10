@@ -4938,6 +4938,15 @@ a.badge:hover {
   color: #ffffff;
 }
 
+.hero-unit2 {
+  padding: 60px;
+  margin-bottom: 30px;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
 .hero-unit {
   padding: 60px;
   margin-bottom: 30px;
@@ -4984,15 +4993,6 @@ a.badge:hover {
   font-weight: 200;
   line-height: 27px;
   color: inherit;
-}
-
-.hero-unit2 {
-  padding: 30px;
-  margin-bottom: 30px;
-  background-color: #9b7979
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
 }
 
 .pull-right {

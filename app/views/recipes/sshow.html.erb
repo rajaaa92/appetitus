@@ -6,17 +6,17 @@
         <div class="span7">
           <div class="hero-unit">
             <p>
-							<b>Ingredients:</b> <br>
-							<%=h simple_format(@recipe.ingredients) %>
+	      <b>Ingredients:</b> <br>
+	      <%=h simple_format(@recipe.ingredients) %>
             </p>
             <p>
-							<b>Content:</b> <br>
-							<%=h @recipe.content %>
+	      <b>Content:</b> <br>
+	      <%=h @recipe.content %>
             </p>
           </div>
           <p>
 						<b>Added by:</b>
-						<%=h User.find(@recipe.user_id).name %>
+						<%=h @recipe.user_id.name %>
 						<br>
 						<b>Rate:</b>
 						<%=h @recipe.rate %>

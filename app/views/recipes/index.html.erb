@@ -1,0 +1,27 @@
+<div class="hero-unit">
+
+  <h3>Recipes</h3>
+
+  <table class="table table-condensed">
+    <tr>
+      <th>Name</th>
+			<th>Added by</th>
+			<th>Rate</th>
+    </tr>
+
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%=h link_to recipe.name, recipe %></td>
+			<td><%=h recipe.user_id %></td>
+      <td><%=h recipe.rate %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <p><%= link_to 'New recipe', new_recipe_path %> </p>
+
+
+</div>
+

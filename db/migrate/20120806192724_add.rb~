@@ -1,0 +1,11 @@
+class Add < ActiveRecord::Migration
+  def self.up
+    add.column :recipes, :rate, :fixnum
+    add.column :recipes, :author, :fixnum
+  end
+
+  def self.down
+    remove.column :recipes, :rate
+    remove.column :recipes, :author
+  end
+end

@@ -1,0 +1,20 @@
+<h1>Editing cookbook</h1>
+
+<% form_for(@cookbook) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :recipe %><br />
+    <%= f.text_field :recipe %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cookbook %> |
+<%= link_to 'Back', cookbooks_path %>

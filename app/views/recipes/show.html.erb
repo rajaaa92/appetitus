@@ -1,0 +1,63 @@
+<div class="hero-unit">
+  <h2> <%=h @recipe.name %> </h2> <br>
+  <div class="row">
+    <div class="span12">
+      <div class="row">
+        <div class="span7">
+          <div class="hero-unit2">
+            <p>
+	      <b>Ingredients:</b> <br>
+	      <%=h simple_format(@recipe.ingredients) %>
+            </p>
+            <p>
+	      <b>Content:</b> <br>
+	      <%=h @recipe.content %>
+            </p>
+          </div>
+          <p>
+						<b>Added by:</b>
+						<%=h @recipe.user.name %>
+						<br>
+						<b>Rate:</b>
+						<%=h @recipe.rate %>
+				 </p>
+				 <br>
+          <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+          <%= link_to 'Destroy', @recipe, :confirm => 
+	    'Are you sure?', :method => :delete %> |
+          <%= link_to 'Back', recipes_path %>
+       
+          <hr>
+
+
+          <h4>Comments</h4><br>
+          <% @recipe.comments.each do |c| %>
+						<table class="table">          
+							<thead>
+								<tr>
+             			<b> Comment written</b>
+	             		<i> <%= time_ago_in_words(c.created_at) %> ago: </i> <br>
+									<%=h c.content %>
+          			</tr>
+							</thead>
+        		</table>
+          <% end %>
+
+        </div>
+        <div class="span5">
+          <% form_for [@recipe, Comment.new] do |f| %>
+          <p>
+            Add your comment...<br />
+            <%= f.text_area :content %>
+          </p>
+          <p>
+            <%= f.submit "Add Comment" %>
+          </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

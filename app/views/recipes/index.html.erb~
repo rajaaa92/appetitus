@@ -11,7 +11,7 @@
 
   <% @recipes.each do |recipe| %>
     <tr>
-      <td><%=h recipe.name %></td>
+      <td><%=h link_to recipe.name, recipe %></td>
 			<td><%=h recipe.user_id %></td>
       <td><%=h recipe.rate %></td>
     </tr>

@@ -8,6 +8,20 @@
   </head>
   <body>
     <div class="container">
+			<div class="navbar">
+  			<div class="navbar-inner">
+    			<div class="container">
+      			<a class="brand" href="#">
+  						Appetitus!
+						</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        			<span class="icon-bar">
+								<%= link_to 'Create an account', 'users#new' %>
+							</span>
+      			</a>
+    			</div>
+  			</div>
+			</div>
       <img src="/assets/appetitus.png" />
 
 				<% if flash[:notice] %>
@@ -15,7 +29,7 @@
 						<%= flash[:notice] %> 
 					</div>
 				<% end %>
-
+				Use 1 as user please, im working on it ;)
         <%= yield %>
 
     </div>

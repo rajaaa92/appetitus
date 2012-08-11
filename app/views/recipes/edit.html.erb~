@@ -29,6 +29,10 @@
     Rate <br />
     <%= f.text_field :rate %>
   </p>
+	<p>
+    Added by: <br />
+    <%= f.text_field :user_id %>
+  </p>
   <p>
     <%= f.submit 'Update' %>
   </p>

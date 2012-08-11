@@ -1,6 +1,5 @@
 Appetitush::Application.routes.draw do
   resources :sessions
-  resources :comments
   resources :recipes
   resources :users
 

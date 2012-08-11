@@ -16,7 +16,7 @@
           </div>
           <p>
 						<b>Added by:</b>
-						<%=h User(@recipe.user_id).name %>
+						<%=h User.find(@recipe.user_id).name %>
 						<br>
 						<b>Rate:</b>
 						<%=h @recipe.rate %>
@@ -24,13 +24,40 @@
 				 <br>
           <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
           <%= link_to 'Destroy', @recipe, :confirm => 
-	    'Are you sure?', :method => :delete %> |
+	    			'Are you sure?', :method => :delete %> |
           <%= link_to 'Back', recipes_path %>
        
-          <hr>
+          <hr>  
 
+					<h4>Comments</h4><br>
+          <% @recipe.comments.each do |c| %>
+						<table class="table">          
+							<thead>
+								<tr>
+             			<b> Comment written</b>
+	             		<i> <%= time_ago_in_words(c.created_at) %> ago: </i> 
+									by <%= User.find(c.user_id).name %> <br>
+									<%=h c.content %>
+          			</tr>
+							</thead>
+        		</table>
+          <% end %>
 
-          
+        </div>
+				<div class="span5">
+          <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
+		          Add your comment...<br />
+						  <div class="field">
+   						  <%= f.text_area :content %>
+ 							</div>
+							Your user_id:
+							<div class="field">
+   						  <%= f.text_field :user_id %>
+ 							</div>
+		        <p>
+		          <%= f.submit "Add Comment" %>
+		        </p>
+          <% end %>
         </div>
       </div>
     </div>

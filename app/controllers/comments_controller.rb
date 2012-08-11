@@ -41,8 +41,17 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.create!(params[:comment])
-    redirect_to @recipe
+    @comment = @recipe.comments.build(params[:comment])
+		respond_to do |format|
+      if @comment.save
+        format.html { redirect_to(@recipe, :notice => 'Comment was successfully created.') }
+        format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+      else
+        format.html { redirect_to(@recipe, :notice => 
+        'Comment could not be saved. Please fill in all fields')}
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /comments/1

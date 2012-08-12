@@ -43,13 +43,19 @@
 					<div class="item">
 						<center> <img src="/assets/navbar1a.png" /> </center>
 					</div>
-			    
   			</div>
+				<script>
+					$("div").carousel( { autoSlide: true } );
+				</script>
   			<!-- Carousel nav -->
   			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 			
 			</div>
+
+
+
+
 
 			<h4>Use 1 as user please, im working on it ;) </h4> <hr>
 
@@ -62,10 +68,5 @@
         <%= yield %>
 
     </div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="../../assets/javascripts/bootstrap.min.js"></script>
-		<script>
-			$('.carousel').carousel({  interval: 2000})
-		</script>
   </body>
 </html>

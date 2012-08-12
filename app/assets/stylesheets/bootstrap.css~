@@ -4012,7 +4012,7 @@ a.thumbnail:hover {
 }
 .carousel {
   position: relative;
-  margin-bottom: 0px;
+  margin-bottom: 18px;
   line-height: 1;
 }
 .carousel-inner {
@@ -4023,11 +4023,11 @@ a.thumbnail:hover {
 .carousel .item {
   display: none;
   position: relative;
-  -webkit-transition: 0.6s ease-in-out center;
-  -moz-transition: 0.6s ease-in-out center;
-  -ms-transition: 0.6s ease-in-out center;
-  -o-transition: 0.6s ease-in-out center;
-  transition: 0.6s ease-in-out center;
+  -webkit-transition: 0.6s ease-in-out left;
+  -moz-transition: 0.6s ease-in-out left;
+  -ms-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
 }
 .carousel .item > img {
   display: block;
@@ -4070,7 +4070,7 @@ a.thumbnail:hover {
   width: 40px;
   height: 40px;
   margin-top: -20px;
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 100;
   line-height: 30px;
   color: #ffffff;

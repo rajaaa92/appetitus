@@ -87,7 +87,7 @@ img {
   max-width: 100%;
   vertical-align: middle;
   border: 0;
-  -ms-interpolation-mode: bicubic;
+	-ms-interpolation-mode: bicubic;
 }
 #map_canvas img {
   max-width: none;

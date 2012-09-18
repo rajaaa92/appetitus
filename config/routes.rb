@@ -1,10 +1,18 @@
 Appetitush::Application.routes.draw do
-  resources :sessions
-  resources :recipes
-  resources :users
+  devise_for :users
 
-  match "/users/login", :to => 'users#login'
-  resources :recipes do
+	get "new_recipe" => "recipes#new", :as => "new_recipe"
+	get "logout" => "sessions#destroy", :as => "logout"
+	get "login" => "sessions#new", :as => "login"
+	get "signup" => "users#new", :as => "signup"
+  
+	resources :recipes
+  resources :users
+	resources :sessions
+
+  #match "/users/login", :to => 'users#login'
+  
+	resources :recipes do
     resources :comments
   end
   resources :users do

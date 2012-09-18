@@ -1,67 +1,65 @@
-<div class="hero-unit">
-  <h2> <%=h @recipe.name %> </h2> <br>
-  <div class="row">
-    <div class="span12">
-      <div class="row">
-        <div class="span7">
-          <div class="hero-unit">
-            <p>
-							<b>Ingredients:</b> <br>
-							<%=h simple_format(@recipe.ingredients) %>
-            </p>
-            <p>
-							<b>Content:</b> <br>
-							<%=h @recipe.content %>
-            </p>
-          </div>
-          <p>
-						<b>Added by:</b>
-						<%=h User.find(@recipe.user_id).name %>
-						<br>
-						<b>Rate:</b>
-						<%=h @recipe.rate %>
-				 </p>
-				 <br>
-          <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-          <%= link_to 'Destroy', @recipe, :confirm => 
-	    			'Are you sure?', :method => :delete %> |
-          <%= link_to 'Back', recipes_path %>
-       
-          <hr>  
+<h2> <%=h @recipe.name %> </h2> 
 
-					<h4>Comments</h4><br>
-          <% @recipe.comments.each do |c| %>
-						<table class="table">          
-							<thead>
-								<tr>
-             			<b> Comment written</b>
-	             		<i> <%= time_ago_in_words(c.created_at) %> ago </i> 
-									by <%= User.find(c.user_id).name %> : <br>
-									<%=h c.content %>
-          			</tr>
-							</thead>
-        		</table>
-          <% end %>
+<br>
 
-        </div>
-				<div class="span5">
-          <%= form_for([@recipe, @recipe.comments.build]) do |f| %>
-		          Add your comment...<br />
-						  <div class="field">
-   						  <%= f.text_area :content %>
- 							</div>
-							Your user_id:
-							<div class="field">
-   						  <%= f.text_field :user_id %>
- 							</div>
-		        <p>
-		          <%= f.submit "Add Comment" %>
-		        </p>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<b> Ingredients: </b> <br>
+<%=h simple_format(@recipe.ingredients) %>
+
+<b> Content: </b> <br>
+<%=h @recipe.content %>
+
+<br><br>
+
+<b> Added by: </b>
+<% u = User.find(@recipe.user_id).email %>
+<% u =  u[/(.*@)/] %>
+<%=h  u.chop %> <br>
+
+<b> Rate: </b>
+<%=h @recipe.rate %>
+ 
+<br>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Destroy', @recipe, :confirm => 
+		'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', recipes_path %>
+
+<hr>  
+
+
+<h4> Comments </h4> 
+
+<br>
+
+<% @recipe.comments.each do |c| %>
+	<table class="table">          
+		<thead>
+			<tr>
+   			<b> Comment written</b>
+     		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
+					by <% t = User.find(c.user_id).email %>
+							<% t = t[/(.*@)/] %>
+							<%=h  t.chop %>: <br>
+					<%=h c.content %>
+			</tr>
+		</thead>
+	</table>
+<% end %>
+
+<hr>
+
+<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
+    Add your comment...<br />
+	  <div class="field">
+		  <%= f.text_area :content %>
+		</div>
+		
+  <p>
+    <%= f.submit "Add Comment" %>
+  </p>
+<% end %>
+
+
 
 

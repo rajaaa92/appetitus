@@ -9,13 +9,15 @@
 			<th>Rate</th>
     </tr>
 
-  <% @recipes.each do |recipe| %>
-    <tr>
-      <td><%=h link_to recipe.name, recipe %></td>
-			<td><%=h recipe.user_id %></td>
-      <td><%=h recipe.rate %></td>
-    </tr>
-  <% end %>
+  	<% @recipes.each do |recipe| %>
+    	<tr>
+    	  <td><%=h link_to recipe.name, recipe %></td>
+				<% t = User.find(recipe.user_id).email %>
+				<% t = t[/(.*@)/] %>
+				<td><%=h  t.chop %></td>
+    	  <td><%=h recipe.rate %></td>
+    	</tr>
+  	<% end %>
   </table>
 </div>
 

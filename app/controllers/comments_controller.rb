@@ -42,6 +42,7 @@ class CommentsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.build(params[:comment])
+		@comment.user_id = current_user.id
 		respond_to do |format|
       if @comment.save
         format.html { redirect_to(@recipe, :notice => 'Comment was successfully created.') }

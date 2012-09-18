@@ -1,7 +1,4 @@
 class CookbooksController < ApplicationController
-
-	before_filter :authenticate_user!
-
   # GET /cookbooks
   # GET /cookbooks.xml
   def index

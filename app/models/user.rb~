@@ -1,22 +1,14 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-	attr_accessible :email, :password, :password_confirmation
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+	attr_accessible :name, :pass
 
-	validates :email, :presence => true, :uniqueness => true
-	validates :password, :presence => {:on => :create}, :confirmation => true
-
-	#attr_accessor :password
-	#before_save :encrypt_password
-
-
-	#def encrypt_password
-	#	if password.present?
-	#		self.pass = BCrypt::Engine.generate_salt
-	#		self.pass_hash = BCrypt::Engine.hash_secret(password, pass)
-	#	end
-	#end
-  
 	has_many :comments
   has_many :recipes
 

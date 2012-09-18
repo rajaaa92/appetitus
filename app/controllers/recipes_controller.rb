@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController 
 
+	before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /recipes
   # GET /recipes.xml
   def index
@@ -36,10 +38,13 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
-    #if session[:user_id] != @recipe.user_id
-		#	flash[:notice] = "Sorry, you can't edit this recipe"
-		#	redirect_to(recipes_path)
-		#end
+		a = 0
+    a = 1 if (current_user.id == @recipe.user_id) ||
+		         (current_user.role == "admin")
+		if a == 0
+			flash[:notice] = "Sorry, you can't edit this recipe"
+			redirect_to(recipes_path)
+		end
   end
 
   # POST /recipes

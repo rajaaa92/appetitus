@@ -1,6 +1,7 @@
 Appetitush::Application.configure do
   config.assets.precompile += %w( bootstrap.css )
   config.action_view.javascript_expansions[:defaults] = %w(foo.js bar.js)
+	config.assets.initialize_on_precompile = false
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

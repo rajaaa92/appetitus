@@ -13,7 +13,7 @@
 		<%= render "layouts/navigation" %>
 
 		<div class="visible-desktop">
-			<br><br>
+			<br><br><br>
 		</div>
 
 		<div class="hidden-desktop">
@@ -24,7 +24,7 @@
 
 			<%= render "layouts/messages" %>
 			
-			<div class="well">
+			<div class="container">
 				<%= yield %>
 			</div>
 

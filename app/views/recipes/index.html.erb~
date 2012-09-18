@@ -1,4 +1,4 @@
-<div class="hero-unit">
+
 
   <h3>Recipes</h3>
 
@@ -13,11 +13,11 @@
     	<tr>
     	  <td><%=h link_to recipe.name, recipe %></td>
 				<% t = User.find(recipe.user_id).email %>
-				<% t = t[/(..@)/] %>
+				<% t = t[/(.*@)/] %>
 				<td><%=h  t.chop %></td>
     	  <td><%=h recipe.rate %></td>
     	</tr>
   	<% end %>
   </table>
-</div>
+
 

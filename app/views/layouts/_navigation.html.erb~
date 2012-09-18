@@ -16,7 +16,7 @@
 								<%= link_to 'My cookbook', '/cookbooks#index' %>
 							</li>
 							<li class="active">
-								<%= link_to 'Add a recipe', "/recipes#new" %>
+								<%= link_to 'Add a recipe', "/new_recipe" %>
 							</li>
 						</ul>
 						<ul class="nav pull-right">  	

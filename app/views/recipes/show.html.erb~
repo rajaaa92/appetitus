@@ -2,18 +2,18 @@
 
 <br>
 
-<b> Ingredients: </b> <br>
+<h3> <b> Ingredients: </b>  </h3> <br>
 <%=h simple_format(@recipe.ingredients) %>
 
-<b> Content: </b> <br>
-<%=h @recipe.content %>
+<h3> <b> Content: </b> </h3> <br>
+<%=h simple_format(@recipe.content) %>
 
 <br><br>
 
 <b> Added by: </b>
 <% u = User.find(@recipe.user_id).email %>
 <% u =  u[/(.*@)/] %>
-<%=h  u.chop %>: <br>
+<%=h  u.chop %> <br>
 
 <b> Rate: </b>
 <%=h @recipe.rate %>

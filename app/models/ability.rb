@@ -8,8 +8,6 @@ class Ability
       can :manage, :all
 		elsif user.role? :logged_in
 			can :create, [Recipe, Comment]
-			can :manage, Recipe do |recipe|
-				if recipe.user_id == user.id
 		else
 			can :read, [Recipe, Comment]	
     end

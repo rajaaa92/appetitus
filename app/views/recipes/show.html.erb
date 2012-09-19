@@ -4,20 +4,30 @@
 
 <h3> <b> Ingredients: </b>  </h3> <br>
 <%=h simple_format(@recipe.ingredients) %>
-
+<br>
 <h3> <b> Content: </b> </h3> <br>
 <%=h simple_format(@recipe.content) %>
 
-<br><br>
+<hr>
 
-<b> Added by: </b>
-<% u = User.find(@recipe.user_id).email %>
-<% u =  u[/(.*@)/] %>
-<%=h  u.chop %> <br>
+<div class="row">
+	<div class="span1">
+		<b> Added by: </b>
+		<b> Likes: </b>
+		<%=h @recipe.rate %>
+	</div>
+	<% u = User.find(@recipe.user_id).email %>
+	<% u =  u[/(.*@)/] %>
+	<div class="span1">
+		<%=h  u.chop %>
+		<%= link_to 'Like it!', {:action => :like_it, :id => @recipe.id, :remote => true}, {:class=>'btn btn-primary'} %>
+		
+	</div>
+	<div class="span1">
+		<%= link_to 'Add to my cookbook', new_cookbook_path(:recipe_id => @recipe.id), :class => "btn btn-primary" %>
+	</div>
+</div>
 
-<b> Rate: </b>
-<%=h @recipe.rate %>
- 
 <br>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

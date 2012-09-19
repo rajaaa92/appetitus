@@ -91,4 +91,27 @@ class RecipesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def like_it
+		@recipe = Recipe.find(params[:id])
+
+		if Like.where(:recipe_id => @recipe.id, :user_id => current_user.id) == []
+			@like = Like.new
+			@like.user_id = current_user.id
+			@like.recipe_id = @recipe.id
+			@like.save
+			@recipe.increment!(:rate)
+			@recipe.save
+		
+			respond_to do |format|
+		   	format.html { redirect_to(@recipe, :notice => 'You successfully liked the recipe.') }
+		    format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+			end
+		else
+			respond_to do |format|
+			  format.html { redirect_to(@recipe, :notice => 'You have already liked this recipe.')}
+		  end
+    end
+  end
+
 end

@@ -1,0 +1,6 @@
+class ChangeColumnRate < ActiveRecord::Migration
+  def up
+		change_column :recipes, :rate, :integer
+		end
+  end
+end

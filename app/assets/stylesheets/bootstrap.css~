@@ -475,11 +475,12 @@ dd {
 .dl-horizontal dd {
   margin-left: 130px;
 }
+
 hr {
   margin: 18px 0;
   border: 0;
-  border-top: 1px solid #564949;
-  border-bottom: 1px solid #564949;
+  border-top: 1px solid #6f5e5e;
+  border-bottom: 1px solid #6f5e5e;
 }
 strong {
   font-weight: bold;
@@ -1550,7 +1551,7 @@ legend + .control-group {
   *display: inline;
   /* IE7 inline-block hack */
 
-  *zoom: 1;
+  *zoom: 0.6;
   padding: 4px 10px 4px;
   margin-bottom: 0;
   font-size: 13px;

@@ -46,20 +46,20 @@
 			<div class="hidden-desktop">
 				<div class="btn-group">
 					<center>
-						<%= link_to 'Recipes', '/recipes#index', :class => "btn btn-info" %>
-						<%= link_to 'My cookbook', '/cookbooks#index', :class => "btn btn-info" %>
-						<%= link_to 'Add a recipe', "/recipes#new", :class => "btn btn-info" %>
+						<%= link_to 'Recipes', '/recipes#index', :class => "btn btn-primary" %>
+						<%= link_to 'My cookbook', '/cookbooks#index', :class => "btn btn-primary" %>
+						<%= link_to 'Add a recipe', "/recipes#new", :class => "btn btn-primary" %>
 						
 						<% if user_signed_in? %>
-							<%= link_to 'My account', edit_user_registration_path, :class => "btn btn-info" %>
+							<%= link_to 'My account', edit_user_registration_path, :class => "btn btn-primary" %>
 						<% else %>
-							<%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-info" %>
+							<%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-primary" %>
 						<% end %>
 
 						<% if user_signed_in? %>
-							<%= link_to 'Logout', destroy_user_session_path, :class => "btn btn-info", :method=>'delete' %>        
+							<%= link_to 'Logout', destroy_user_session_path, :class => "btn btn-primary", :method=>'delete' %>        
 						<% else %>
-							<%= link_to 'Login', new_user_session_path, :class => "btn btn-info" %>  
+							<%= link_to 'Login', new_user_session_path, :class => "btn btn-primary" %>  
 						<% end %>
 					</center>
 				</div>

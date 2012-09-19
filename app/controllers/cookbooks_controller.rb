@@ -5,7 +5,7 @@ class CookbooksController < ApplicationController
   # GET /cookbooks
   # GET /cookbooks.xml
   def index
-    @cookbooks = Cookbook.all
+    @cookbooks = Cookbook.where(:user_id => current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class CookbooksController < ApplicationController
   # GET /cookbooks/1.xml
   def show
     @cookbook = Cookbook.find(params[:id])
-
+		
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @cookbook }
@@ -28,11 +28,11 @@ class CookbooksController < ApplicationController
   # GET /cookbooks/new.xml
   def new
     @cookbook = Cookbook.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @cookbook }
-    end
+		@recipe = Recipe.find_by_id(params[:recipe_id])
+		@cookbook.recipe_id = @recipe.id
+		@cookbook.user_id = current_user.id
+		@cookbook.save
+		redirect_to "/cookbooks", :notice => 'Recipe was successfully added to your cookbook.'
   end
 
   # GET /cookbooks/1/edit
@@ -44,14 +44,13 @@ class CookbooksController < ApplicationController
   # POST /cookbooks.xml
   def create
     @cookbook = Cookbook.new(params[:cookbook])
+		@cookbook.user_id = current_user.id
 
     respond_to do |format|
       if @cookbook.save
-        format.html { redirect_to(@cookbook, :notice => 'Cookbook was successfully created.') }
-        format.xml  { render :xml => @cookbook, :status => :created, :location => @cookbook }
+        format.html { redirect_to "/cookbooks", :notice => 'Cookbook was successfully created.' }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @cookbook.errors, :status => :unprocessable_entity }
       end
     end
   end

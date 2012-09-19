@@ -1,23 +1,21 @@
-<div class="hero-unit">
+<h3>Recipes</h3>
 
-  <h3>Recipes</h3>
+<table class="table table-condensed">
+  <tr>
+    <th>Name</th>
+		<th>Added by</th>
+		<th>Rate</th>
+  </tr>
 
-  <table class="table table-condensed">
-    <tr>
-      <th>Name</th>
-			<th>Added by</th>
-			<th>Rate</th>
-    </tr>
+	<% @recipes.each do |recipe| %>
+  	<tr>
+  	  <td><%=h link_to recipe.name, recipe %></td>
+			<% t = User.find(recipe.user_id).email %>
+			<% t = t[/(.*@)/] %>
+			<td><%=h  t.chop %></td>
+  	  <td><%=h recipe.rate %></td>
+  	</tr>
+	<% end %>
+</table>
 
-  	<% @recipes.each do |recipe| %>
-    	<tr>
-    	  <td><%=h link_to recipe.name, recipe %></td>
-				<% t = User.find(recipe.user_id).email %>
-				<% t = t[/(.*@)/] %>
-				<td><%=h  t.chop %></td>
-    	  <td><%=h recipe.rate %></td>
-    	</tr>
-  	<% end %>
-  </table>
-</div>
 

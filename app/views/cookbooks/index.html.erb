@@ -1,16 +1,18 @@
-<h1>Listing cookbooks</h1>
+<h3>My cookbook</h3>
 
-<table>
+<table class="table table-condensed">
 
 <% @cookbooks.each do |cookbook| %>
   <tr>
-    <td><%=h Recipe.find(cookbook.recipe_id).name %></td>
-    <td><%= link_to 'Destroy', cookbook, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+			<%=h link_to Recipe.find(cookbook.recipe_id).name, {:controller => :recipes, :action => :show, :id => cookbook.recipe_id} %>
+		</td>
+    <td><%= link_to 'X', cookbook, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New cookbook', new_cookbook_path %>
+
+
 

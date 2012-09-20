@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(:version => 20120918234756) do
     t.text     "ingredients"
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "rate"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "rate",        :default => 0
   end
 
   create_table "users", :force => true do |t|

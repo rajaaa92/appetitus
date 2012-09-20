@@ -35,11 +35,11 @@
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
 
-<hr>  
+<hr>
 
 <div class="row">
 
-	<div class="span7">
+	<div class="span6">
 		<% if @recipe.comments == [] %>
 			<h4> No comments </h4>
 		<% else %>
@@ -66,9 +66,9 @@
 		<% end %>
 	</div>
 
-	<div class="span5">
+	<div class="span4">
 		<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
-				Add your comment...<br />
+				<b> Add your comment... </b> <br />
 				<div class="field">
 					<%= f.text_area :content %>
 				</div>

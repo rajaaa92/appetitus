@@ -53,12 +53,12 @@
 				<thead>
 					<tr>
 						<div class="well">
-				 			<b> Comment written</b>
-					 		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
-								by <% t = User.find(c.user_id).email %>
-										<% t = t[/(.*@)/] %>
-										<%=h  t.chop %>: <br>
-								<%=h c.content %>
+							<% t = User.find(c.user_id).email %>
+							<% t = t[/(.*@)/] %>
+							<b> <%=h  t.chop %> </b> says:
+					 		<i> ( <%= time_ago_in_words(c.created_at) %> ago)</i>
+							<br>
+							<%=h c.content %>
 						</div>
 					</tr>
 				</thead>
@@ -68,7 +68,7 @@
 
 	<div class="span4">
 		<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
-				Add your comment...<br />
+				<b> Add your comment... </b> <br />
 				<div class="field">
 					<%= f.text_area :content %>
 				</div>

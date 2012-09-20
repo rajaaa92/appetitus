@@ -11,15 +11,12 @@
 <hr>
 
 <div class="row">
-	<div class="span1">
-		<b> Added by: </b> <br>
-		<b> Likes: </b>
-	</div>
-	<div class="span1">
+	<div class="span2">
 		<% u = User.find(@recipe.user_id).email %>
 		<% u =  u[/(.*@)/] %>
-		<%=h  u.chop %> <br>
-		<%=h @recipe.rate %>
+		<b> Added by: </b> <%=h  u.chop %>
+		<br>
+		<b> Likes: </b> <%=h @recipe.rate %>
 	</div>
 	<div class="span1">
 		<br>

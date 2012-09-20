@@ -56,7 +56,7 @@
 							<% t = User.find(c.user_id).email %>
 							<% t = t[/(.*@)/] %>
 							<b> <%=h  t.chop %> </b> says:
-					 		<i> ( <%= time_ago_in_words(c.created_at) %> ago)</i>
+					 		<i> (<%= time_ago_in_words(c.created_at) %> ago)</i>
 							<br>
 							<%=h c.content %>
 						</div>

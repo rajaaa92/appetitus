@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+		@recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
   end
 

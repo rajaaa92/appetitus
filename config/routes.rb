@@ -7,6 +7,7 @@ Appetitush::Application.routes.draw do
 	end
 	resources :cookbooks
 	resources :likes
+	resources :comments
     
 	get "new_recipe" => "recipes#new", :as => "new_recipe"
 	post "new_like" => "recipes#like_it", :as => "new_like"

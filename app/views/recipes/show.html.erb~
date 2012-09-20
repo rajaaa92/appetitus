@@ -35,8 +35,11 @@
 
 <hr>  
 
-
-<h4> Comments </h4> 
+<% if @recipe.comments == [] %>
+	<h4> No comments </h4>
+<% else %>
+	<h4> Comments </h4> 
+<% end %>
 
 <br>
 
@@ -44,14 +47,17 @@
 	<table class="table">          
 		<thead>
 			<tr>
-<div class="well">
-   			<b> Comment written</b>
-     		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
-					by <% t = User.find(c.user_id).email %>
-							<% t = t[/(.*@)/] %>
-							<%=h  t.chop %>: <br>
-					<%=h c.content %>
-</div>
+				<div class="well">
+		 			<b> Comment written</b>
+		   		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
+						by <% t = User.find(c.user_id).email %>
+								<% t = t[/(.*@)/] %>
+								<%=h  t.chop %>: <br>
+						<%=h c.content %>
+						<% if current_user.id == c.user_id %>
+							<%= link_to 'Edit', {:controller => :comments, :action => :edit, :recipe_id => @recipe.id, :id => c.id} %>
+						<% end %>
+				</div>
 			</tr>
 		</thead>
 	</table>

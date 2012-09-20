@@ -35,8 +35,11 @@
 
 <hr>  
 
-
-<h4> Comments </h4> 
+<% if @recipe.comments == [] %>
+	<h4> No comments </h4>
+<% else %>
+	<h4> Comments </h4> 
+<% end %>
 
 <br>
 

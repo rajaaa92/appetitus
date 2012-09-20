@@ -12,16 +12,17 @@
 
 <div class="row">
 	<div class="span1">
-		<b> Added by: </b>
+		<b> Added by: </b> <br>
 		<b> Likes: </b>
+	</div>
+	<div class="span1">
+		<% u = User.find(@recipe.user_id).email %>
+		<% u =  u[/(.*@)/] %>
+		<%=h  u.chop %> <br>
 		<%=h @recipe.rate %>
 	</div>
-	<% u = User.find(@recipe.user_id).email %>
-	<% u =  u[/(.*@)/] %>
 	<div class="span1">
-		<%=h  u.chop %>
 		<%= link_to 'Like it!', {:action => :like_it, :id => @recipe.id, :remote => true}, {:class=>'btn btn-primary'} %>
-		
 	</div>
 	<div class="span1">
 		<%= link_to 'Add to my cookbook', new_cookbook_path(:recipe_id => @recipe.id), :class => "btn btn-primary" %>
@@ -35,46 +36,51 @@
 
 <hr>  
 
-<% if @recipe.comments == [] %>
-	<h4> No comments </h4>
-<% else %>
-	<h4> Comments </h4> 
-<% end %>
+<div class="row">
 
-<br>
+	<div class="span7">
+		<% if @recipe.comments == [] %>
+			<h4> No comments </h4>
+		<% else %>
+			<h4> Comments </h4> 
+		<% end %>
 
-<% @recipe.comments.each do |c| %>
-	<table class="table">          
-		<thead>
-			<tr>
-				<div class="well">
-		 			<b> Comment written</b>
-		   		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
-						by <% t = User.find(c.user_id).email %>
-								<% t = t[/(.*@)/] %>
-								<%=h  t.chop %>: <br>
-						<%=h c.content %>
-						<% if current_user.id == c.user_id %>
-							<%= link_to 'Edit', {:controller => :comments, :action => :edit, :recipe_id => @recipe.id, :id => c.id} %>
-						<% end %>
+		<br>
+
+		<% @recipe.comments.each do |c| %>
+			<table class="table">          
+				<thead>
+					<tr>
+						<div class="well">
+				 			<b> Comment written</b>
+					 		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
+								by <% t = User.find(c.user_id).email %>
+										<% t = t[/(.*@)/] %>
+										<%=h  t.chop %>: <br>
+								<%=h c.content %>
+						</div>
+					</tr>
+				</thead>
+			</table>
+		<% end %>
+	</div>
+
+	<div class="span5">
+		<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
+				Add your comment...<br />
+				<div class="field">
+					<%= f.text_area :content %>
 				</div>
-			</tr>
-		</thead>
-	</table>
-<% end %>
-
-<hr>
-
-<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
-    Add your comment...<br />
-	  <div class="field">
-		  <%= f.text_area :content %>
-		</div>
 		
-  <p>
-    <%= f.submit "Add Comment" %>
-  </p>
-<% end %>
+			<p>
+				<%= f.submit "Add Comment" %>
+			</p>
+		<% end %>
+	</div>
+
+</div>
+
+
 
 
 

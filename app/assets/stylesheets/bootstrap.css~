@@ -949,10 +949,10 @@ input[type="color"],
 }
 input,
 textarea {
-  width: 210px;
+  width: 100%;
 }
 textarea {
-  height: auto;
+  height: 20px;
 }
 textarea,
 input[type="text"],
@@ -1551,12 +1551,12 @@ legend + .control-group {
   *display: inline;
   /* IE7 inline-block hack */
 
-  *zoom: 0.6;
-  padding: 4px 10px 4px;
+  *zoom: 1;
+  padding: 2px 6px 2px;
   margin-bottom: 0;
   font-size: 13px;
-  line-height: 18px;
-  *line-height: 20px;
+  line-height: 10px;
+  *line-height: 12px;
   color: #333333;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -3332,12 +3332,12 @@ a.thumbnail:hover {
   padding: 8px 35px 8px 14px;
   margin-bottom: 18px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
+  background-color: #c2b4ab;
+  border: 1px solid #3f3e3b;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  color: #c09853;
+  color: #3f3e3b;
 }
 .alert-heading {
   color: inherit;
@@ -3349,20 +3349,20 @@ a.thumbnail:hover {
   line-height: 18px;
 }
 .alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
+  background-color: #c2b4ab;
+  border-color: #3f3e3b;
+  color: #3f3e3b;
 }
 .alert-danger,
 .alert-error {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
+  background-color: #c2b4ab;
+  border-color: #3f3e3b;
+  color: #3f3e3b;
 }
 .alert-info {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  color: #3a87ad;
+  background-color: #c2b4ab;
+  border-color: #3f3e3b;
+  color: #3f3e3b;
 }
 .alert-block {
   padding-top: 14px;

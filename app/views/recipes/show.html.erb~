@@ -24,16 +24,13 @@
 		
 	</div>
 	<div class="span1">
-		<%= link_to 'Add to my cookbook', {:controller => :cookbooks, :action => :new, :id => @recipe.id, :remote => true}, {:class=>'btn btn-primary'} %>
-		<%= link_to 'Add to my cookbook2', new_cookbook_path(:recipe_id => @recipe.id), :class => "btn btn-primary" %>
+		<%= link_to 'Add to my cookbook', new_cookbook_path(:recipe_id => @recipe.id), :class => "btn btn-primary" %>
 	</div>
 </div>
 
 <br>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Destroy', @recipe, :confirm => 
-		'Are you sure?', :method => :delete %> |
 <%= link_to 'Back', recipes_path %>
 
 <hr>  
@@ -47,12 +44,14 @@
 	<table class="table">          
 		<thead>
 			<tr>
+<div class="well">
    			<b> Comment written</b>
      		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
 					by <% t = User.find(c.user_id).email %>
 							<% t = t[/(.*@)/] %>
 							<%=h  t.chop %>: <br>
 					<%=h c.content %>
+</div>
 			</tr>
 		</thead>
 	</table>

@@ -31,8 +31,6 @@
 <br>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Destroy', @recipe, :confirm => 
-		'Are you sure?', :method => :delete %> |
 <%= link_to 'Back', recipes_path %>
 
 <hr>  
@@ -46,12 +44,14 @@
 	<table class="table">          
 		<thead>
 			<tr>
-   			<b> Comment written</b>
-     		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
-					by <% t = User.find(c.user_id).email %>
-							<% t = t[/(.*@)/] %>
-							<%=h  t.chop %>: <br>
-					<%=h c.content %>
+				<div class="well">
+		 			<b> Comment written</b>
+		   		<i> <%= time_ago_in_words(c.created_at) %> ago </i>
+						by <% t = User.find(c.user_id).email %>
+								<% t = t[/(.*@)/] %>
+								<%=h  t.chop %>: <br>
+						<%=h c.content %>
+				</div>
 			</tr>
 		</thead>
 	</table>

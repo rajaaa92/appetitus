@@ -6,7 +6,7 @@
   <%= devise_error_messages! %>
 
   <div>
-	  your email: <%= f.email_field :email %>
+	  email: <%= f.email_field :email %>
 	</div>
 
   <div>

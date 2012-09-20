@@ -949,10 +949,10 @@ input[type="color"],
 }
 input,
 textarea {
-  width: 100%;
+  width: auto;
 }
 textarea {
-  height: 60px;
+  height: auto;
 }
 textarea,
 input[type="text"],

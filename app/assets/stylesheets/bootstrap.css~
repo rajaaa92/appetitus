@@ -952,7 +952,7 @@ textarea {
   width: 100%;
 }
 textarea {
-  height: 20px;
+  height: 60px;
 }
 textarea,
 input[type="text"],
@@ -4325,7 +4325,7 @@ button.close {
   textarea[class*="span"],
   .uneditable-input {
     display: block;
-    width: 100%;
+    width: auto;
     min-height: 28px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

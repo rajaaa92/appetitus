@@ -48,8 +48,7 @@
 					<center>
 						<%= link_to 'Recipes', '/recipes#index', :class => "btn btn-primary" %>
 						<%= link_to 'My cookbook', '/cookbooks#index', :class => "btn btn-primary" %>
-						<%= link_to 'Add a recipe', "/recipes#new", :class => "btn btn-primary" %>
-						
+						<%= link_to 'Add a recipe', "/new_recipe", :class => "btn btn-primary" %>						
 						<% if user_signed_in? %>
 							<%= link_to 'My account', edit_user_registration_path, :class => "btn btn-primary" %>
 						<% else %>

@@ -2,30 +2,26 @@ class CookbooksController < ApplicationController
 
 	before_filter :authenticate_user!
 
-  # GET /cookbooks
-  # GET /cookbooks.xml
   def index
     @cookbooks = Cookbook.where(:user_id => current_user.id)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.xml  { render :xml => @cookbooks }
     end
   end
 
-  # GET /cookbooks/1
-  # GET /cookbooks/1.xml
+  
   def show
     @cookbook = Cookbook.find(params[:id])
 		
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.xml  { render :xml => @cookbook }
     end
   end
 
-  # GET /cookbooks/new
-  # GET /cookbooks/new.xml
+
   def new
     @cookbook = Cookbook.new
 		@recipe = Recipe.find_by_id(params[:recipe_id])
@@ -35,13 +31,12 @@ class CookbooksController < ApplicationController
 		redirect_to "/cookbooks", :notice => 'Recipe was successfully added to your cookbook.'
   end
 
-  # GET /cookbooks/1/edit
+  
   def edit
     @cookbook = Cookbook.find(params[:id])
   end
 
-  # POST /cookbooks
-  # POST /cookbooks.xml
+  
   def create
     @cookbook = Cookbook.new(params[:cookbook])
 		@cookbook.user_id = current_user.id
@@ -55,8 +50,7 @@ class CookbooksController < ApplicationController
     end
   end
 
-  # PUT /cookbooks/1
-  # PUT /cookbooks/1.xml
+
   def update
     @cookbook = Cookbook.find(params[:id])
 
@@ -71,8 +65,7 @@ class CookbooksController < ApplicationController
     end
   end
 
-  # DELETE /cookbooks/1
-  # DELETE /cookbooks/1.xml
+  
   def destroy
     @cookbook = Cookbook.find(params[:id])
     @cookbook.destroy

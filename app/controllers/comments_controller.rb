@@ -2,47 +2,42 @@ class CommentsController < ApplicationController
 
 	before_filter :authenticate_user!, :except => [:index, :show]
 
-  # GET /comments
-  # GET /comments.xml
   def index
     @comments = Comment.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.xml  { render :xml => @comments }
     end
   end
 
-  # GET /comments/1
-  # GET /comments/1.xml
+
   def show
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.xml  { render :xml => @comment }
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.xml
+  
   def new
     @comment = Comment.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.xml  { render :xml => @comment }
     end
   end
 
-  # GET /comments/1/edit
+  
   def edit
 		@recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.find(params[:id])
   end
 
-  # POST /comments
-  # POST /comments.xml
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.build(params[:comment])
@@ -59,8 +54,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PUT /comments/1
-  # PUT /comments/1.xml
+  
   def update
     @comment = Comment.find(params[:id])
 
@@ -75,8 +69,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.xml
+  
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

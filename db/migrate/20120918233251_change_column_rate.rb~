@@ -1,8 +1,0 @@
-class RemoveColumnRate < ActiveRecord::Migration
-  def up
-		remove_column :recipes, :rate
-  end
-
-  def down
-  end
-end

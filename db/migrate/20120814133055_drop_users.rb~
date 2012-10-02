@@ -1,4 +1,0 @@
-class CreateUsers < ActiveRecord::Migration
-  def drop
-    drop_table :users
-end

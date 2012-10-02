@@ -1,9 +1,0 @@
-class CreateComments < ActiveRecord::Migration
-  def self.up
-    drop_table :comments
-  
-
-  def self.down
-    
-  end
-end

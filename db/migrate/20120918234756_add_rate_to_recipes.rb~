@@ -1,9 +1,0 @@
-class AddRateToRecipes < ActiveRecord::Migration
-  def up
-    add_column :recipes, :rate, :integer, :default => "logged_in"
-  end
-
-	def down
-		remove_column :recipes, :rate
-	end
-end

@@ -1,6 +1,5 @@
 class CookbooksController < ApplicationController
-
-	before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @cookbooks = Cookbook.where(:user_id => current_user.id)

@@ -1,5 +1,5 @@
 class LikesController < RecipesController 
-	def like_it
+  def like_it
 		@recipe = Recipe.find(params[:id])
 		@recipe.rate = 3
 		@recipe.save

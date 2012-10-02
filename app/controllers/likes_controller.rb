@@ -11,6 +11,6 @@ class LikesController < RecipesController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
-		end
+    end
   end
 end

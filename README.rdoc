@@ -1,5 +1,7 @@
 == Appetitus
 
 Appetitus is a project that I created at the very beginning of my adventure with Ruby on Rails.
+
 It's about collecting the best recipes. Every user can add recipes to the database and select recipes to be showed in his/her cookbook.
+
 In the future I'm going to continue developing this project.

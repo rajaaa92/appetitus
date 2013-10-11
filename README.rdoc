@@ -5,3 +5,16 @@ Appetitus is a project that I created at the very beginning of my adventure with
 It's about collecting the best recipes. Every user can add recipes to the database and select recipes to be showed in his/her cookbook.
 
 In the future I'm going to continue developing this project.
+
+
+== To run on local:
+
+git clone git@github.com:rajaaa92/appetitus.git
+cd appetitus/
+rake db:create
+rake db:migrate
+powder up
+heroku addons:add pgbackups --app appetitus --confirm appetitus
+heroku pgbackups:capture --app appetitus --confirm appetitus
+curl -o latest.dump `heroku pgbackups:url --app appetitus`
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U asia -d appetitus_dev latest.dump

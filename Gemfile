@@ -16,6 +16,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem "airbrake"
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'simple_form'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

@@ -10,6 +10,7 @@ gem 'pg'
 gem 'json'
 gem 'thin'
 gem 'devise'
+gem 'haml'
 gem "cancan"
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem "airbrake"

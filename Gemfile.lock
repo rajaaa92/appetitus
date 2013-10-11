@@ -33,6 +33,8 @@ GEM
       girl_friday
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.3.2.2)
+      sass (~> 3.2)
     builder (3.0.0)
     cancan (1.6.8)
     coffee-rails (3.2.2)
@@ -111,7 +113,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     taps (0.3.24)
       rack (>= 1.0.1)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -138,6 +139,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  bootstrap-sass (~> 2.3.2.1)
   cancan
   coffee-rails (~> 3.2.1)
   devise
@@ -146,8 +148,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.7)
   recaptcha
-  sass-rails (~> 3.2.3)
-  sqlite3
+  sass-rails (>= 3.2)
   taps (= 0.3.24)
   thin
   uglifier (>= 1.0.3)

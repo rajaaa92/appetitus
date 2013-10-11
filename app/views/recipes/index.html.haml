@@ -1,0 +1,12 @@
+.well.well-lg
+  %h2 Recipes
+  %table.table.table-condensed
+    %tr
+      %th Name
+      %th Added by
+      %th Likes
+    - @recipes.each do |recipe|
+      %tr
+        %td= link_to recipe.name, recipe
+        %td= User.find(recipe.user_id).email[/(.*@)/].chop
+        %td= recipe.rate

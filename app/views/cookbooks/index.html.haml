@@ -1,0 +1,8 @@
+.well.well-lg
+  %h2 My cookbook
+  %table.table.table-condensed
+    - @cookbooks.each do |cookbook|
+      %tr
+        %td
+          = link_to cookbook.recipe.name, {:controller => :recipes, :action => :show, :id => cookbook.recipe_id}
+        %td= link_to 'X', cookbook, :confirm => 'Are you sure?', :method => :delete

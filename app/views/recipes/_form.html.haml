@@ -1,0 +1,23 @@
+= simple_form_for @recipe do |f|
+  - if @recipe.errors.any?
+    #error_explanation
+      %h4
+        = pluralize(@recipe.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - @recipe.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-lg-12
+      %h4 Name:
+      = f.input :name, label: false
+  .row
+    .col-lg-6
+      %h4 Ingredients:
+      = f.input :ingredients, label: false
+    .col-lg-6
+      %h4 Content:
+      = f.input :content, label: false
+  .row.add_recipe_button
+    .col-lg-12
+      = f.button :submit, 'Add recipe', class: "btn btn-primary"

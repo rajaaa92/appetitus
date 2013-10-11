@@ -1,5 +1,5 @@
 Appetitush::Application.configure do
-  config.assets.precompile += %w( bootstrap.css )
+  config.assets.precompile += %w( application.css )
   config.action_view.javascript_expansions[:defaults] = %w(foo.js bar.js)
 	config.assets.initialize_on_precompile = false
   config.cache_classes = false

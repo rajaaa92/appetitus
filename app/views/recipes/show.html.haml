@@ -1,0 +1,37 @@
+.well.well-lg
+  .jumbotron
+    %h1= @recipe.name
+    .pull-right
+      %h4= "Added by: #{@recipe.user.email[/(.*@)/].chop}"
+      %h4= "Likes: #{@recipe.rate}"
+    .row
+      .col-lg-5
+        %h3 Ingredients:
+        = simple_format(@recipe.ingredients)
+      .col-lg-7.content
+        %h3 How to prepare:
+        = simple_format(@recipe.content)
+    .row
+      .col-lg-1
+        = link_to 'Like it!', {:action => :like_it, :id => @recipe.id, :remote => true}, {:class=>'btn btn-primary'}
+      .col-lg-2
+        = link_to 'Add to my cookbook', new_cookbook_path(:recipe_id => @recipe.id), :class => "btn btn-primary"
+      .col-lg-2.pull-right
+        = link_to 'Edit', edit_recipe_path(@recipe)
+        |
+        = link_to 'Back', recipes_path
+    #comments_container
+      .row
+        .col-lg-12
+          %h3= (@recipe.comments.any? ? "Comments" : "No comments")
+      .row
+        .col-lg-6
+          - @recipe.comments.each do |comment|
+            .well
+              %h4= "#{comment.user.email[/(.*@)/].chop} says (#{time_ago_in_words(comment.created_at)} ago):"
+              %small= comment.content
+        .col-lg-4
+          = simple_form_for @recipe.comments.build do |f|
+            %h4 Add your comment...
+            = f.input_field :content, label: false, rows: 4
+            = f.button :submit, 'Add comment', class: "btn btn-primary"

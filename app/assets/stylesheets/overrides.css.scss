@@ -1,0 +1,25 @@
+@import url("//fonts.googleapis.com/css?family=Didact+Gothic&subset=latin,latin-ext");
+.well.well-lg {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+div#comments_container {
+  margin-top: 70px;
+}
+body {
+  font-family: "Didact Gothic",Arial,sans-serif;
+}
+.navbar {
+  font-family: "Cabin",Arial,sans-serif;
+}
+div.content {
+  line-height: 1.6;
+}
+.row.add_recipe_button {
+  margin-top: 10px;
+}
+textarea#recipe_ingredients, textarea#recipe_content, input#recipe_name {
+  width: 450px;
+}

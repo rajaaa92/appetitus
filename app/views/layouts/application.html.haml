@@ -1,0 +1,15 @@
+!!! 5
+%html(lang="en")
+  %head
+    %title Appetitus!
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag "application"
+    = csrf_meta_tag
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %link{href: "/favicon.ico", rel: "shortcut icon"}
+  %body
+    = render "layouts/navigation"
+    .container
+      = render "layouts/messages"
+      .well.well-lg
+        = yield

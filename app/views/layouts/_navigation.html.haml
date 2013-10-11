@@ -1,0 +1,22 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      %a.navbar-brand Appetitus
+      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", type: "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li= link_to 'Recipes', '/recipes#index'
+        %li= link_to 'My cookbook', '/cookbooks#index'
+        %li= link_to 'Add a recipe', "/new_recipe"
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li= link_to 'My account', edit_user_registration_path
+        - else
+          %li= link_to 'Sign up', new_user_registration_path
+        - if user_signed_in?
+          %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+        - else
+          %li= link_to 'Login', new_user_session_path

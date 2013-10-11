@@ -2,68 +2,43 @@
   <nav class="navbar-inner">
     <div class="container">
 
-			<div class="visible-desktop">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar">
-						<ul class="nav pull-left">
-							<li class="active">		
-								<%= link_to 'Recipes', '/recipes#index' %>
-							</li>
-							<li class="active">
-								<%= link_to 'My cookbook', '/cookbooks#index' %>
-							</li>
-							<li class="active">
-								<%= link_to 'Add a recipe', "/new_recipe" %>
-							</li>
-						</ul>
-						<ul class="nav pull-right">  	
-							<% if user_signed_in? %>
-								<li class="active">
-									<%= link_to 'My account', edit_user_registration_path %>
-								</li>
-							<% else %>
-								<li class="active">
-									<%= link_to 'Sign up', new_user_registration_path %>
-								</li>
-							<% end %>
-
-							<% if user_signed_in? %>
-								<li class="active">
-								<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-								</li>
-							<% else %>
-								<li class="active">
-								<%= link_to 'Login', new_user_session_path  %>  
-								</li>
-							<% end %>
-
-						</ul>
-					</span>
-				</a>				
-			</div>
-
-
-			<div class="hidden-desktop">
-				<div class="btn-group">
-					<center>
-						<%= link_to 'Recipes', '/recipes#index', :class => "btn btn-primary" %>
-						<%= link_to 'My cookbook', '/cookbooks#index', :class => "btn btn-primary" %>
-						<%= link_to 'Add a recipe', "/new_recipe", :class => "btn btn-primary" %>						
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar">
+					<ul class="nav pull-left">
+						<li class="active">
+							<%= link_to 'Recipes', '/recipes#index' %>
+						</li>
+						<li class="active">
+							<%= link_to 'My cookbook', '/cookbooks#index' %>
+						</li>
+						<li class="active">
+							<%= link_to 'Add a recipe', "/new_recipe" %>
+						</li>
+					</ul>
+					<ul class="nav pull-right">
 						<% if user_signed_in? %>
-							<%= link_to 'My account', edit_user_registration_path, :class => "btn btn-primary" %>
+							<li class="active">
+								<%= link_to 'My account', edit_user_registration_path %>
+							</li>
 						<% else %>
-							<%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-primary" %>
+							<li class="active">
+								<%= link_to 'Sign up', new_user_registration_path %>
+							</li>
 						<% end %>
 
 						<% if user_signed_in? %>
-							<%= link_to 'Logout', destroy_user_session_path, :class => "btn btn-primary", :method=>'delete' %>        
+							<li class="active">
+							<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+							</li>
 						<% else %>
-							<%= link_to 'Login', new_user_session_path, :class => "btn btn-primary" %>  
+							<li class="active">
+							<%= link_to 'Login', new_user_session_path  %>
+							</li>
 						<% end %>
-					</center>
-				</div>
-			</div>
 
+					</ul>
+				</span>
+			</a>
     </div>
   </nav>
 </header>

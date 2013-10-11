@@ -1,4 +1,4 @@
-<h2> <%=h @recipe.name %> </h2> 
+<h2> <%=h @recipe.name %> </h2>
 
 <hr>
 
@@ -40,13 +40,13 @@
 		<% if @recipe.comments == [] %>
 			<h4> No comments </h4>
 		<% else %>
-			<h4> Comments </h4> 
+			<h4> Comments </h4>
 		<% end %>
 
 		<br>
 
 		<% @recipe.comments.each do |c| %>
-			<table class="table">          
+			<table class="table">
 				<thead>
 					<tr>
 						<div class="well">
@@ -69,7 +69,7 @@
 				<div class="field">
 					<%= f.text_area :content %>
 				</div>
-		
+
 			<p>
 				<%= f.submit "Add Comment" %>
 			</p>

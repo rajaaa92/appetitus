@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
     else
       build_resource
       clean_up_passwords(resource)
-      flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."      
+      flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code."
       render :new
     end
   end

@@ -5,6 +5,7 @@ gem 'rails', '3.2.7'
 gem "airbrake"
 gem 'bootstrap-sass', '~> 2.3.2.1'
 gem "cancan"
+gem 'decent_exposure'
 gem 'devise'
 gem 'haml'
 gem 'jquery-rails'

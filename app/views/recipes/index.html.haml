@@ -5,8 +5,8 @@
       %th Name
       %th Added by
       %th Likes
-    - @recipes.each do |recipe|
+    - recipes.each do |r|
       %tr
-        %td= link_to recipe.name, recipe
-        %td= User.find(recipe.user_id).email[/(.*@)/].chop
-        %td= recipe.rate
+        %td= link_to r.name, r
+        %td= User.find(r.user_id).email[/(.*@)/].chop
+        %td= r.rate

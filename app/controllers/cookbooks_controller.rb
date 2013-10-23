@@ -1,12 +1,9 @@
 class CookbooksController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :html
 
   def index
     @cookbooks = Cookbook.where(:user_id => current_user.id)
-  end
-
-  def show
-    @cookbook = Cookbook.find(params[:id])
   end
 
   def new
@@ -43,6 +40,6 @@ class CookbooksController < ApplicationController
   def destroy
     @cookbook = Cookbook.find(params[:id])
     @cookbook.destroy
-    redirect_to(cookbooks_url)
+    redirect_to "/cookbooks", :notice => 'Cookbook was successfully destroyed.'
   end
 end

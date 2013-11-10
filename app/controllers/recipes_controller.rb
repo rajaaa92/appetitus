@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   expose(:recipes)
-  expose(:recipe) { Recipe.where(id: params[:id]).first || Recipe.new(params[:recipe]) }
+  expose(:recipe) { Recipe.where(id: params[:id]).first || (Recipe.new(params[:recipe]) if params["action"] == "new") }
   expose(:comments) { recipe.comments }
   expose(:comment) { recipe.comments.build }
 
@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    redirect_to recipes_path, notice: "Recipe not found" if recipe.nil?
   end
 
   def new

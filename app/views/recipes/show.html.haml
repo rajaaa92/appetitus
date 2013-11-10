@@ -2,7 +2,7 @@
   .jumbotron
     %h1= recipe.name
     .pull-right
-      %h4= "Added by: #{recipe.user.email[/(.*@)/].chop}"
+      %h4= "Added by: #{recipe.user.name}"
       %h4= "Likes: #{recipe.rate}"
     .row
       .col-lg-5
@@ -30,7 +30,7 @@
         .col-lg-6
           - recipe.comments.each do |c|
             .well
-              %h4= "#{c.user.email[/(.*@)/].chop} says (#{time_ago_in_words(c.created_at)} ago):"
+              %h4= "#{c.user.name} says (#{time_ago_in_words(c.created_at)} ago):"
               %small= c.content
         .col-lg-4
           = simple_form_for [recipe, comment] do |f|

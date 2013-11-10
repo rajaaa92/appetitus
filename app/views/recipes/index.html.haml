@@ -8,5 +8,5 @@
     - recipes.each do |r|
       %tr
         %td= link_to r.name, r
-        %td= User.find(r.user_id).email[/(.*@)/].chop
+        %td= r.user.name
         %td= r.rate

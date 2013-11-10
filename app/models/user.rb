@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 	has_many :comments
   has_many :recipes
 
+  def name
+    self.email.split("@").first
+  end
+
 end

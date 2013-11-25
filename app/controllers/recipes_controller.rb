@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   expose(:recipes)
-  expose(:recipe) { Recipe.where(id: params[:id]).first || (Recipe.new(params[:recipe]) if params["action"] == "new") }
+  expose(:recipe) { Recipe.where(id: params[:id]).first || (Recipe.new(params[:recipe]) if params["action"] == "new" || params["action"] == "create") }
   expose(:comments) { recipe.comments }
   expose(:comment) { recipe.comments.build }
 
